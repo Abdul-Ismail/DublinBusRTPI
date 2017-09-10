@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7771B5FAAEB3324C86F09E14 /* Pods_DublinBusRTPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44618C3F068DB7DCD3105D6 /* Pods_DublinBusRTPI.framework */; };
+		7B7CF8BC1F645C7E00456909 /* StopInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7CF8BB1F645C7E00456909 /* StopInformation.swift */; };
+		7B7CF8BE1F64624E00456909 /* StopInformationJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7CF8BD1F64624E00456909 /* StopInformationJson.swift */; };
 		7BA025CA1F6326F90057C86B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA025C91F6326F90057C86B /* AppDelegate.swift */; };
 		7BA025CC1F6326F90057C86B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA025CB1F6326F90057C86B /* ViewController.swift */; };
 		7BA025CF1F6326F90057C86B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BA025CD1F6326F90057C86B /* Main.storyboard */; };
@@ -17,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18DA81674E93D3337C51EAA1 /* Pods-DublinBusRTPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DublinBusRTPI.release.xcconfig"; path = "Pods/Target Support Files/Pods-DublinBusRTPI/Pods-DublinBusRTPI.release.xcconfig"; sourceTree = "<group>"; };
+		2D666382EA006F2DE638C07D /* Pods-DublinBusRTPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DublinBusRTPI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DublinBusRTPI/Pods-DublinBusRTPI.debug.xcconfig"; sourceTree = "<group>"; };
+		7B7CF8BB1F645C7E00456909 /* StopInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopInformation.swift; sourceTree = "<group>"; };
+		7B7CF8BD1F64624E00456909 /* StopInformationJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopInformationJson.swift; sourceTree = "<group>"; };
 		7BA025C61F6326F90057C86B /* DublinBusRTPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DublinBusRTPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA025C91F6326F90057C86B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BA025CB1F6326F90057C86B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +33,7 @@
 		7BA025D51F6326F90057C86B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BA025DB1F6328910057C86B /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		7BA025DD1F632A2F0057C86B /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		D44618C3F068DB7DCD3105D6 /* Pods_DublinBusRTPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DublinBusRTPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +41,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7771B5FAAEB3324C86F09E14 /* Pods_DublinBusRTPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01FE3C238DF7ECA145DCE0E2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D44618C3F068DB7DCD3105D6 /* Pods_DublinBusRTPI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7BA025BD1F6326F90057C86B = {
 			isa = PBXGroup;
 			children = (
 				7BA025C81F6326F90057C86B /* DublinBusRTPI */,
 				7BA025C71F6326F90057C86B /* Products */,
+				CD4FB298C0518D767E109B2D /* Pods */,
+				01FE3C238DF7ECA145DCE0E2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +80,8 @@
 				7BA025C91F6326F90057C86B /* AppDelegate.swift */,
 				7BA025CB1F6326F90057C86B /* ViewController.swift */,
 				7BA025CD1F6326F90057C86B /* Main.storyboard */,
+				7B7CF8BB1F645C7E00456909 /* StopInformation.swift */,
+				7B7CF8BD1F64624E00456909 /* StopInformationJson.swift */,
 				7BA025DB1F6328910057C86B /* SearchTableViewCell.swift */,
 				7BA025DD1F632A2F0057C86B /* SearchTableViewController.swift */,
 				7BA025D01F6326F90057C86B /* Assets.xcassets */,
@@ -70,6 +91,15 @@
 			path = DublinBusRTPI;
 			sourceTree = "<group>";
 		};
+		CD4FB298C0518D767E109B2D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2D666382EA006F2DE638C07D /* Pods-DublinBusRTPI.debug.xcconfig */,
+				18DA81674E93D3337C51EAA1 /* Pods-DublinBusRTPI.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +107,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7BA025D81F6326F90057C86B /* Build configuration list for PBXNativeTarget "DublinBusRTPI" */;
 			buildPhases = (
+				A44576968786ADBA24B0CEBF /* [CP] Check Pods Manifest.lock */,
 				7BA025C21F6326F90057C86B /* Sources */,
 				7BA025C31F6326F90057C86B /* Frameworks */,
 				7BA025C41F6326F90057C86B /* Resources */,
+				C96537F054451A30CD25D181 /* [CP] Embed Pods Frameworks */,
+				EBF9765AB03A31E758D4EF1E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -138,6 +171,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A44576968786ADBA24B0CEBF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DublinBusRTPI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C96537F054451A30CD25D181 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DublinBusRTPI/Pods-DublinBusRTPI-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DublinBusRTPI/Pods-DublinBusRTPI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EBF9765AB03A31E758D4EF1E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DublinBusRTPI/Pods-DublinBusRTPI-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7BA025C21F6326F90057C86B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -145,7 +232,9 @@
 			files = (
 				7BA025DC1F6328910057C86B /* SearchTableViewCell.swift in Sources */,
 				7BA025CC1F6326F90057C86B /* ViewController.swift in Sources */,
+				7B7CF8BE1F64624E00456909 /* StopInformationJson.swift in Sources */,
 				7BA025CA1F6326F90057C86B /* AppDelegate.swift in Sources */,
+				7B7CF8BC1F645C7E00456909 /* StopInformation.swift in Sources */,
 				7BA025DE1F632A2F0057C86B /* SearchTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,6 +356,7 @@
 		};
 		7BA025D91F6326F90057C86B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D666382EA006F2DE638C07D /* Pods-DublinBusRTPI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = N73X6W7Y98;
@@ -280,6 +370,7 @@
 		};
 		7BA025DA1F6326F90057C86B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18DA81674E93D3337C51EAA1 /* Pods-DublinBusRTPI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = N73X6W7Y98;
@@ -310,6 +401,7 @@
 				7BA025DA1F6326F90057C86B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

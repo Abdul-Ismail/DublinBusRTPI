@@ -8,17 +8,39 @@
 
 import UIKit
 
+struct stopInformation {
+    let stopId: String?
+    let fullname: String?
+}
+
 class SearchTableViewController: UITableViewController {
     
-    let busStopNumber = ["3237", "4568", "3236", "450", "3237", "4568", "3236", "450", "3237", "4568", "3236", "450", "3237", "4568", "3236", "450"]
-    let busStopLocation = ["Sallynoggin Rd", "HoneyPark", "Sallynoggin, Pearse Street", "Trinty college", "Sallynoggin Rd", "HoneyPark", "Sallynoggin, Pearse Street", "Trinty college", "Sallynoggin Rd", "HoneyPark", "Sallynoggin, Pearse Street", "Trinty college", "Sallynoggin Rd", "HoneyPark", "Sallynoggin, Pearse Street", "Trinty college"]
-    
-    
+    let busStopNumber = ["3237", "4568"]
+    let busStopLocation = ["Sallynoggin Rd", "HoneyPark"]
+    var passedStopInformation: StopInformation!
+    var stopInformationJson: StopInformationJson!
+    var busInformation: [stopInformation] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
+        
+        let url = URL(string: "https://data.dublinked.ie/cgi-bin/rtpi/busstopinformation?stopid&format=json")
+        
+        stopInformationJson = StopInformationJson(url: url!)
+        stopInformationJson.getStopInformation { (stopInfo) in
+               if let passedStopInformation = stopInfo {
+                    DispatchQueue.main.async {
+                    for i in 0..<passedStopInformation.stopInformations.count {
+                        var stopId = passedStopInformation.stopInformations[i].stopId
+                        var fullname = passedStopInformation.stopInformations[i].fullname
+                        self.busInformation.append(stopInformation(stopId: stopId, fullname: fullname))
+                    }
+                    self.tableView.reloadData()
+                }
+            }
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,7 +57,9 @@ class SearchTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return busStopNumber.count
+        //print(passedStopInformation.stopInformations.count)
+        //print(self.passedStopInformation.stopInformations.count)
+        return busInformation.count
     }
 
     
@@ -44,11 +68,12 @@ class SearchTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of SearchCell.")
         }
         
-        let stopNumber = busStopNumber[indexPath.row]
-        let stopLocation = busStopLocation[indexPath.row]
-        
-        cell.busStopNumber.text = stopNumber
-        cell.busStopLocation.text = stopLocation
+        //let stopId = self.passedStopInformation.stopInformations[indexPath.row].stopId
+        //let fullname = self.passedStopInformation.stopInformations[indexPath.row].fullname
+        let stopId = busInformation[indexPath.row].stopId
+        let fullname = busInformation[indexPath.row].fullname
+        cell.busStopNumber.text = stopId
+        cell.busStopLocation.text = fullname
 
         return cell
     }
@@ -68,6 +93,9 @@ class SearchTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+    }
 
 
 }
