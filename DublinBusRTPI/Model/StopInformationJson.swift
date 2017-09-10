@@ -22,13 +22,6 @@ class StopInformationJson {
             Alamofire.request(url).responseJSON(completionHandler: { (response) in //1
                 if let jsonDictionary = response.result.value as? [String : Any] {
                     if let resultStopInformationDictionary = jsonDictionary["results"] as? NSArray{
-//                        //print(resultStopInformationDictionary[1])
-//                        print("DDD")
-//                        print(type(of: resultStopInformationDictionary))
-//                        print(resultStopInformationDictionary.value(forKey: "stopid"))
-//                        for a in resultStopInformationDictionary {
-//                            print((a as AnyObject).value(forKey: "stopid"))
-//                        }
                         let stopInformation = StopInformation(stopInformationDictionary: resultStopInformationDictionary)
                         completion(stopInformation)
                         

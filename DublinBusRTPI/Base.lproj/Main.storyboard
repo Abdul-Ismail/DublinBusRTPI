@@ -53,10 +53,41 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ttY-zC-Wsq"/>
+                    <connections>
+                        <segue destination="jRa-4r-S4I" kind="show" identifier="clickedRow_Segue" id="zfi-lT-bGz"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DUy-y5-rG6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="370" y="62"/>
+        </scene>
+        <!--Due Time Table View Controller-->
+        <scene sceneID="n8i-pY-g4z">
+            <objects>
+                <tableViewController id="jRa-4r-S4I" customClass="DueTimeTableViewController" customModule="DublinBusRTPI" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ygf-bV-Qui">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="vB9-St-jh7">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vB9-St-jh7" id="8ly-36-zV7">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="jRa-4r-S4I" id="vom-yz-9o3"/>
+                            <outlet property="delegate" destination="jRa-4r-S4I" id="Rdb-6B-V7d"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xJS-Yu-bvW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1135" y="62"/>
         </scene>
         <!--Item-->
         <scene sceneID="xT4-b2-25t">
@@ -83,6 +114,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="siH-yK-qvR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tao-Li-ffk">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>

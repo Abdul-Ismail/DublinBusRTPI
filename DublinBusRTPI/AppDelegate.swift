@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let url = URL(string: "https://data.dublinked.ie/cgi-bin/rtpi/busstopinformation?stopid&format=json")
 //        let stopinformation = StopInformationJson.init(url: url!)
 //        stopinformation.getStopInformation()
+        
+
         return true
     }
 

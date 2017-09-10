@@ -21,8 +21,6 @@ class StopInformation {
     var counter = 0
     var stopInformations: [stopInformation] = []
     
-    
-    
     struct stopInformationKeys {
         static let stopid = "stopid"
         static let fullname = "fullname"
@@ -39,17 +37,8 @@ class StopInformation {
                 counter = counter + 1
             }
         }
-        //print(stopInformations)
     }
-        
-        
-//        for stopInfo in stopInformationDictionary {
-////print(stopInfo)
-//           // var b = (stopInfo["stopid"]
-//            //print(type(of: stopInfo))
-//            }
-//        }
-    
+
     
     /*
  {

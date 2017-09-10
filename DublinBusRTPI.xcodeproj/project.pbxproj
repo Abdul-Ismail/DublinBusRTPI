@@ -10,6 +10,9 @@
 		7771B5FAAEB3324C86F09E14 /* Pods_DublinBusRTPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44618C3F068DB7DCD3105D6 /* Pods_DublinBusRTPI.framework */; };
 		7B7CF8BC1F645C7E00456909 /* StopInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7CF8BB1F645C7E00456909 /* StopInformation.swift */; };
 		7B7CF8BE1F64624E00456909 /* StopInformationJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7CF8BD1F64624E00456909 /* StopInformationJson.swift */; };
+		7B7CF8C01F64FA5000456909 /* DueTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7CF8BF1F64FA5000456909 /* DueTimeTableViewController.swift */; };
+		7B7CF8C41F65589600456909 /* DueTimeJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7CF8C31F65589600456909 /* DueTimeJson.swift */; };
+		7B7CF8C61F6558B100456909 /* DueTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7CF8C51F6558B100456909 /* DueTime.swift */; };
 		7BA025CA1F6326F90057C86B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA025C91F6326F90057C86B /* AppDelegate.swift */; };
 		7BA025CC1F6326F90057C86B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA025CB1F6326F90057C86B /* ViewController.swift */; };
 		7BA025CF1F6326F90057C86B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BA025CD1F6326F90057C86B /* Main.storyboard */; };
@@ -24,6 +27,9 @@
 		2D666382EA006F2DE638C07D /* Pods-DublinBusRTPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DublinBusRTPI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DublinBusRTPI/Pods-DublinBusRTPI.debug.xcconfig"; sourceTree = "<group>"; };
 		7B7CF8BB1F645C7E00456909 /* StopInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopInformation.swift; sourceTree = "<group>"; };
 		7B7CF8BD1F64624E00456909 /* StopInformationJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopInformationJson.swift; sourceTree = "<group>"; };
+		7B7CF8BF1F64FA5000456909 /* DueTimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DueTimeTableViewController.swift; sourceTree = "<group>"; };
+		7B7CF8C31F65589600456909 /* DueTimeJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DueTimeJson.swift; sourceTree = "<group>"; };
+		7B7CF8C51F6558B100456909 /* DueTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DueTime.swift; sourceTree = "<group>"; };
 		7BA025C61F6326F90057C86B /* DublinBusRTPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DublinBusRTPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA025C91F6326F90057C86B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BA025CB1F6326F90057C86B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +62,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7B7CF8C11F6557CA00456909 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7B7CF8BB1F645C7E00456909 /* StopInformation.swift */,
+				7B7CF8BD1F64624E00456909 /* StopInformationJson.swift */,
+				7B7CF8C51F6558B100456909 /* DueTime.swift */,
+				7B7CF8C31F65589600456909 /* DueTimeJson.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7B7CF8C21F6557E300456909 /* SearchStop */ = {
+			isa = PBXGroup;
+			children = (
+				7BA025DB1F6328910057C86B /* SearchTableViewCell.swift */,
+				7BA025DD1F632A2F0057C86B /* SearchTableViewController.swift */,
+			);
+			path = SearchStop;
+			sourceTree = "<group>";
+		};
 		7BA025BD1F6326F90057C86B = {
 			isa = PBXGroup;
 			children = (
@@ -80,10 +106,9 @@
 				7BA025C91F6326F90057C86B /* AppDelegate.swift */,
 				7BA025CB1F6326F90057C86B /* ViewController.swift */,
 				7BA025CD1F6326F90057C86B /* Main.storyboard */,
-				7B7CF8BB1F645C7E00456909 /* StopInformation.swift */,
-				7B7CF8BD1F64624E00456909 /* StopInformationJson.swift */,
-				7BA025DB1F6328910057C86B /* SearchTableViewCell.swift */,
-				7BA025DD1F632A2F0057C86B /* SearchTableViewController.swift */,
+				7B7CF8BF1F64FA5000456909 /* DueTimeTableViewController.swift */,
+				7B7CF8C11F6557CA00456909 /* Model */,
+				7B7CF8C21F6557E300456909 /* SearchStop */,
 				7BA025D01F6326F90057C86B /* Assets.xcassets */,
 				7BA025D21F6326F90057C86B /* LaunchScreen.storyboard */,
 				7BA025D51F6326F90057C86B /* Info.plist */,
@@ -231,7 +256,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BA025DC1F6328910057C86B /* SearchTableViewCell.swift in Sources */,
+				7B7CF8C61F6558B100456909 /* DueTime.swift in Sources */,
+				7B7CF8C01F64FA5000456909 /* DueTimeTableViewController.swift in Sources */,
 				7BA025CC1F6326F90057C86B /* ViewController.swift in Sources */,
+				7B7CF8C41F65589600456909 /* DueTimeJson.swift in Sources */,
 				7B7CF8BE1F64624E00456909 /* StopInformationJson.swift in Sources */,
 				7BA025CA1F6326F90057C86B /* AppDelegate.swift in Sources */,
 				7B7CF8BC1F645C7E00456909 /* StopInformation.swift in Sources */,

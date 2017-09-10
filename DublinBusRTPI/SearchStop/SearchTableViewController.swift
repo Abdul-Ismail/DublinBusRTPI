@@ -20,6 +20,7 @@ class SearchTableViewController: UITableViewController {
     var passedStopInformation: StopInformation!
     var stopInformationJson: StopInformationJson!
     var busInformation: [stopInformation] = []
+    var pressedBusStop = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,7 +95,14 @@ class SearchTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        pressedBusStop = busInformation[indexPath.row].stopId!
+        performSegue(withIdentifier: "clickedRow_Segue", sender: self)
+    }
+    
+    //this function is run before we perform the segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var DueTimeTableViewController = segue.destination as! DueTimeTableViewController
+        DueTimeTableViewController.checkBusStop = pressedBusStop
     }
 
 
