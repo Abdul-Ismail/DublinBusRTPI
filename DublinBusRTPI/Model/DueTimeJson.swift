@@ -15,6 +15,8 @@ class DueTimeJson {
     
     init(stopid: String){
         dueTimeURL = URL(string: "https://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid=\(stopid)&format=json")
+        print("SSSSSSSSSSS")
+        print(stopid)
     }
     
     func getStopDueTime(completion: @escaping (NSArray?) -> Void) {

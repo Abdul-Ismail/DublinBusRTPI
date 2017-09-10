@@ -13,17 +13,21 @@ struct stopInformation {
     let fullname: String?
 }
 
-class SearchTableViewController: UITableViewController {
+class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
-    let busStopNumber = ["3237", "4568"]
-    let busStopLocation = ["Sallynoggin Rd", "HoneyPark"]
     var passedStopInformation: StopInformation!
     var stopInformationJson: StopInformationJson!
     var busInformation: [stopInformation] = []
+    var filteredBusInformation: [stopInformation] = []
     var pressedBusStop = ""
 
+    @IBOutlet weak var searchBar: UISearchBar!
+    var isSearching = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.done
 
         
         let url = URL(string: "https://data.dublinked.ie/cgi-bin/rtpi/busstopinformation?stopid&format=json")
@@ -60,7 +64,11 @@ class SearchTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         //print(passedStopInformation.stopInformations.count)
         //print(self.passedStopInformation.stopInformations.count)
-        return busInformation.count
+        if isSearching  {
+            return filteredBusInformation.count
+        }else {
+           return busInformation.count
+        }
     }
 
     
@@ -69,13 +77,20 @@ class SearchTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of SearchCell.")
         }
         
-        //let stopId = self.passedStopInformation.stopInformations[indexPath.row].stopId
-        //let fullname = self.passedStopInformation.stopInformations[indexPath.row].fullname
-        let stopId = busInformation[indexPath.row].stopId
-        let fullname = busInformation[indexPath.row].fullname
+        let stopId: String
+        let fullname: String
+        if isSearching {
+            stopId = filteredBusInformation[indexPath.row].stopId!
+            fullname = filteredBusInformation[indexPath.row].fullname!
+        }else {
+            stopId = busInformation[indexPath.row].stopId!
+            fullname = busInformation[indexPath.row].fullname!
+        }
+
+        
         cell.busStopNumber.text = stopId
         cell.busStopLocation.text = fullname
-
+        
         return cell
     }
     
@@ -95,7 +110,11 @@ class SearchTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        pressedBusStop = busInformation[indexPath.row].stopId!
+        if isSearching {
+            pressedBusStop = filteredBusInformation[indexPath.row].stopId!
+        }else {
+            pressedBusStop = busInformation[indexPath.row].stopId!
+        }
         performSegue(withIdentifier: "clickedRow_Segue", sender: self)
     }
     
@@ -103,6 +122,29 @@ class SearchTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var DueTimeTableViewController = segue.destination as! DueTimeTableViewController
         DueTimeTableViewController.checkBusStop = pressedBusStop
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == nil || searchBar.text == "" {
+            
+            isSearching = false
+            view.endEditing(true)
+            self.tableView.reloadData()
+            
+        }else {
+            isSearching = true
+            filteredBusInformation.removeAll()
+            for i in 0..<busInformation.count {
+                var currentStopId = busInformation[i].stopId
+                //var
+                var keyword = searchBar.text!
+                if currentStopId?.range(of:keyword) != nil {
+                    filteredBusInformation.append(busInformation[i])
+                }
+            }
+                self.tableView.reloadData()
+        }
+        
     }
 
 

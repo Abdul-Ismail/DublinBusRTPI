@@ -34,19 +34,13 @@ class DueTimeTableViewController: UITableViewController {
                 self.stopDueTimeInformations.append(stopDueTimeInformation(busRoute: route, dueTime: dueTime))
                 //print(route)
                }
-                 print(self.stopDueTimeInformations.count)
-                                self.aaaa()
+                 self.tableView.reloadData()
               }
             }
         }
 
     }
     
-    func aaaa() {
-        print("SSS")
-        a = 1
-        self.tableView.reloadData()
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -77,7 +71,6 @@ class DueTimeTableViewController: UITableViewController {
 
         cell.dueTime.text = dueTime
         cell.route.text = route
-        print("AAA")
         
         return cell
         
