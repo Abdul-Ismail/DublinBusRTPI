@@ -25,7 +25,10 @@ class SearchTableViewCell: UITableViewCell {
                     favourite.tintColor = UIColor.red
         }
         print(Data.favourite)
-
+    
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadFavouriteTableView"), object: nil)
+            
+        
     }
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,7 +39,6 @@ class SearchTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-        print("yep its in here")
         
         
         favourite.setImage( UIImage.init(named: "favourite"), for: .normal)
