@@ -10,18 +10,42 @@ import UIKit
 
 class SearchTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var favourite: UIButton!
     @IBOutlet weak var busStopNumber: UILabel!
     @IBOutlet weak var busStopLocation: UILabel!
+
     
+    @IBAction func favourite_TouchUpInside(_ sender: Any) {
+        if Data.favourite.contains(busStopNumber.text!) {
+            var index = Data.favourite.index(of: busStopNumber.text!)
+            Data.favourite.remove(at: index!)
+                    favourite.tintColor = UIColor.black
+        }else {
+            Data.favourite.append(busStopNumber.text!)
+                    favourite.tintColor = UIColor.red
+        }
+        print(Data.favourite)
+
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        print("yep its in here")
+        
+        
+        favourite.setImage( UIImage.init(named: "favourite"), for: .normal)
+        
+        if (Data.favourite.contains(busStopNumber.text!)) {
+                favourite.tintColor = UIColor.red
+        }else {
+                favourite.tintColor = UIColor.black
+        }
     }
 
 }
