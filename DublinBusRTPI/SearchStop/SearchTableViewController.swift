@@ -28,7 +28,8 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done
-
+      
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none //disables the cell lines
         
         let url = URL(string: "https://data.dublinked.ie/cgi-bin/rtpi/busstopinformation?stopid&format=json")
         
@@ -99,13 +100,13 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         
         //sets the initial alpha value for the cell
         cell.alpha = 0.6
-        let  transform = CATransform3DTranslate(CATransform3DIdentity, -50, 20, 0)
-        cell.layer.transform = transform
+        //let  transform = CATransform3DTranslate(CATransform3DIdentity, -50, 20, 0)
+        //cell.layer.transform = transform
         
         //will change the alpha gradually
         UIView.animate(withDuration: 1.0) {
             cell.alpha = 1
-            cell.layer.transform = CATransform3DIdentity // will change to original state
+           /// cell.layer.transform = CATransform3DIdentity // will change to original state
         }
     }
     
@@ -146,6 +147,20 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         }
         
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Show the navigation bar on other view controllers
+        self.navigationController?.isNavigationBarHidden = true;
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+
+    
+ 
 
 
 }

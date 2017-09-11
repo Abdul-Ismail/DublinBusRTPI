@@ -10,9 +10,11 @@ import UIKit
 
 class FavouriteTableViewController: UITableViewController {
 
+    var pressedBusStop = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         print(Data.favourite)
+        
         
         //        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadFavouriteTableView"), object: nil)
         
@@ -25,8 +27,8 @@ class FavouriteTableViewController: UITableViewController {
 //    }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("ASDASDA")
         self.tableView.reloadData()
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,49 +57,26 @@ class FavouriteTableViewController: UITableViewController {
     }
  
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        pressedBusStop = Data.favourite[indexPath.row]
+        performSegue(withIdentifier: "FavouriteToDueTime", sender: self)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        var DueTimeTableViewController = segue.destination as! DueTimeTableViewController
+        DueTimeTableViewController.checkBusStop = pressedBusStop
     }
-    */
+    
+    //makes a cell deletable and then removes it from favourited arrau and calls notification to changes it color
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            var removedFavourite = Data.favourite[indexPath.row]
+            Data.favourite.remove(at: indexPath.row)
+            self.tableView.reloadData()
+            
+             NotificationCenter.default.post(name:     NSNotification.Name.init("changeColorAsStopIsNoLongerFavourited"), object: removedFavourite)
+
+        }
+    }
 
 }
