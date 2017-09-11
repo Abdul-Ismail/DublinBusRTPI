@@ -15,16 +15,8 @@ class FavouriteTableViewController: UITableViewController {
         super.viewDidLoad()
         print(Data.favourite)
         
-        
-        //        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadFavouriteTableView"), object: nil)
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(reloadTable) , name: NSNotification.Name(rawValue:"reloadFavouriteTableView"), object: nil)
 
     }
-    
-//    func reloadTable() {
-//        print("IM IN")
-//    }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()

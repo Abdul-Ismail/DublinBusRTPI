@@ -14,6 +14,9 @@ class DueTimeTableViewCell: UITableViewCell {
     @IBOutlet weak var dueTime: UILabel!
     @IBOutlet weak var destination: UILabel!
     
+    
+    @IBAction func setReminderButton(_ sender: Any) {
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
