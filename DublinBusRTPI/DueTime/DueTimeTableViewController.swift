@@ -20,6 +20,9 @@ class DueTimeTableViewController: UITableViewController {
     var dueTime: DueTimeJson!
     var stopDueTimeInformations: [stopDueTimeInformation] = []
     
+    var reminderBus: String = ""
+    var ReminderDueTime: String = ""
+    
     @IBOutlet var blurView: UIVisualEffectView!
     @IBOutlet var settingUpReminderView: UIView!
     @IBOutlet weak var cancelReminder: UIButton!
@@ -39,6 +42,13 @@ class DueTimeTableViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none //disables the cell lines
         effect = blurView.effect
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
+            
+            if didAllow {
+                
+            }
+        })
     
         settingUpReminderView.layer.cornerRadius = 5
         
@@ -89,9 +99,11 @@ class DueTimeTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         if stopDueTimeInformations[indexPath.row].dueTime != "Due" && stopDueTimeInformations[indexPath.row].dueTime != "1" {
-            let busDueTime = Float(stopDueTimeInformations[indexPath.row].dueTime!)
+            reminderBus = stopDueTimeInformations[indexPath.row].busRoute!
+            ReminderDueTime = stopDueTimeInformations[indexPath.row].dueTime!
+            
+            var busDueTime = Float(stopDueTimeInformations[indexPath.row].dueTime!)
             sliderForTimer_Outlet.maximumValue = busDueTime! - 1
             sliderForTimer_Outlet.minimumValue = 1
             
@@ -155,6 +167,22 @@ class DueTimeTableViewController: UITableViewController {
     }
     
     @IBAction func setReminder_TouchUpInsdie(_ sender: UIButton) {
+        
+        animateOut()
+                let reminder = UNMutableNotificationContent()
+                reminder.title = "Your bus is due in \(ReminderDueTime)"
+                reminder.subtitle = "The bus is "
+                reminder.body = "The body"
+                reminder.badge = 1 //displays it in notification
+        
+                //var timeForNotification = (timerOptionForSlider.text) as? Double!
+                var trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)//trigger the notification display
+                let request = UNNotificationRequest(identifier: "busReminder", content: reminder, trigger: trigger)//request authorisation to display thr notification
+                UNUserNotificationCenter.current().add(request, withCompletionHandler: nil) //added to notification center
+
+        
+
+    
     }
     
 }
