@@ -8,32 +8,38 @@
 
 import Foundation
 
-//modelling our current model
+//using optinal type because we have to take care of a case where its nill
+struct busDataStruct {
+    let stopId: String?
+    let fullname: String?
+    let longitude: String?
+    let latitude: String?
+}
+
+var busData: [busDataStruct] = []
 
 class StopInformation {
     
     //using optinal type because we have to take care of a case where its nill
-    struct stopInformation {
-    let stopId: String?
-    let fullname: String?
-    }
     
     var counter = 0
-    var stopInformations: [stopInformation] = []
+    
     
     struct stopInformationKeys {
         static let stopid = "stopid"
         static let fullname = "fullname"
     }
     
-    
+    //passed from the parsed data from StopInformationJSon and I'm extracting the specific keys that I want from the string
     init(stopInformationDictionary: NSArray)
     {
         for stopInfo in stopInformationDictionary {
             if counter < 4728 {
             var stopIdExtracted = (stopInfo as? NSDictionary)?["stopid"] as? String ?? ""
             var fullnameExtracted = (stopInfo as? NSDictionary)?["fullname"] as? String ?? ""
-            stopInformations.append(stopInformation(stopId: stopIdExtracted, fullname: fullnameExtracted))
+            var latitudeExtracted = (stopInfo as? NSDictionary)?["latitude"] as? String ?? ""
+            var longitudeExtracted = (stopInfo as? NSDictionary)?["longitude"] as? String ?? ""
+            busData.append(busDataStruct(stopId: stopIdExtracted, fullname: fullnameExtracted, longitude: longitudeExtracted, latitude: latitudeExtracted))
                 counter = counter + 1
             }
         }

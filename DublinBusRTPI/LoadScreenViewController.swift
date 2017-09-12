@@ -20,21 +20,13 @@ class LoadScreenViewController: UIViewController {
         
         stopInformationJson = StopInformationJson(url: url!)
         stopInformationJson.getStopInformation { (stopInfo) in
-            if let passedStopInformation = stopInfo {
                 DispatchQueue.main.async {
-                    for i in 0..<passedStopInformation.stopInformations.count {
-                        var stopId = passedStopInformation.stopInformations[i].stopId
-                        var fullname = passedStopInformation.stopInformations[i].fullname
-                        busData.append(busDataStruct(stopId: stopId, fullname: fullname))
-                    }
-                        self.performSegue(withIdentifier: "loadingDone_Segue", sender: self)
-                    
-                }
-            }
-            
-        }
 
+                        self.performSegue(withIdentifier: "loadingDone_Segue", sender: self)
+            }
+        
         // Do any additional setup after loading the view.
+     }
     }
 
     override func didReceiveMemoryWarning() {
