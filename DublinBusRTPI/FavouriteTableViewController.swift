@@ -19,8 +19,11 @@ class FavouriteTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none //disables the cell lines
+        
         self.tableView.reloadData()
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        //self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     override func didReceiveMemoryWarning() {

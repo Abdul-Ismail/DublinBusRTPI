@@ -115,6 +115,10 @@ class DueTimeTableViewController: UITableViewController {
     
     func settingUpReminderViewAnimation() {
         
+        
+        sliderForTimer_Outlet.setValue(3, animated: true)
+        timerOptionForSlider.text = "3"
+        
         self.view.addSubview(settingUpReminderView)
 
         //self.view.isUserInteractionEnabled = false
@@ -169,14 +173,23 @@ class DueTimeTableViewController: UITableViewController {
     @IBAction func setReminder_TouchUpInsdie(_ sender: UIButton) {
         
         animateOut()
+        
                 let reminder = UNMutableNotificationContent()
-                reminder.title = "Your bus is due in \(ReminderDueTime)"
-                reminder.subtitle = "The bus is "
-                reminder.body = "The body"
+                reminder.title = "The bus \(reminderBus)"
+        reminder.subtitle = "is due in \(Int(ReminderDueTime)! - Int(timerOptionForSlider.text!)!) minutes "
+                reminder.body = "hurry.."
                 reminder.badge = 1 //displays it in notification
         
-                //var timeForNotification = (timerOptionForSlider.text) as? Double!
-                var trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)//trigger the notification display
+        //mutiplying the picked reminder by 60 in order to get the minutes
+        
+        var timeSelectedConverted =  Double(timerOptionForSlider.text!)!
+        print(type(of: timeSelectedConverted))
+        var dueTimeConverted = Double(reminderBus)!
+        print(type(of: dueTimeConverted))
+        
+        var timeSelected = (dueTimeConverted - timeSelectedConverted)
+  
+                var trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeSelected, repeats: false)//trigger the notification display
                 let request = UNNotificationRequest(identifier: "busReminder", content: reminder, trigger: trigger)//request authorisation to display thr notification
                 UNUserNotificationCenter.current().add(request, withCompletionHandler: nil) //added to notification center
 
