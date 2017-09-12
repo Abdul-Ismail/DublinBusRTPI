@@ -151,16 +151,12 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // Show the navigation bar on other view controllers
-        self.navigationController?.isNavigationBarHidden = true;
+        //self.navigationController?.isNavigationBarHidden = true;
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        //self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-
-    
- 
-
 
 }
