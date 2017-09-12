@@ -8,17 +8,9 @@
 
 import UIKit
 
-struct stopInformation {
-    let stopId: String?
-    let fullname: String?
-}
-
 class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
-    var passedStopInformation: StopInformation!
-    var stopInformationJson: StopInformationJson!
-    var busInformation: [stopInformation] = []
-    var filteredBusInformation: [stopInformation] = []
+    var filteredBusInformation: [busDataStruct] = []
     var pressedBusStop = ""
 
     @IBOutlet weak var searchBar: UISearchBar!
@@ -31,22 +23,6 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
       
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none //disables the cell lines
         
-        let url = URL(string: "https://data.dublinked.ie/cgi-bin/rtpi/busstopinformation?stopid&format=json")
-        
-        stopInformationJson = StopInformationJson(url: url!)
-        stopInformationJson.getStopInformation { (stopInfo) in
-               if let passedStopInformation = stopInfo {
-                    DispatchQueue.main.async {
-                    for i in 0..<passedStopInformation.stopInformations.count {
-                        var stopId = passedStopInformation.stopInformations[i].stopId
-                        var fullname = passedStopInformation.stopInformations[i].fullname
-                        self.busInformation.append(stopInformation(stopId: stopId, fullname: fullname))
-                    }
-                    self.tableView.reloadData()
-                }
-            }
-            
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,7 +44,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         if isSearching  {
             return filteredBusInformation.count
         }else {
-           return busInformation.count
+           return busData.count
         }
     }
 
@@ -84,8 +60,8 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
             stopId = filteredBusInformation[indexPath.row].stopId!
             fullname = filteredBusInformation[indexPath.row].fullname!
         }else {
-            stopId = busInformation[indexPath.row].stopId!
-            fullname = busInformation[indexPath.row].fullname!
+            stopId = busData[indexPath.row].stopId!
+            fullname = busData[indexPath.row].fullname!
         }
 
         
@@ -114,7 +90,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         if isSearching {
             pressedBusStop = filteredBusInformation[indexPath.row].stopId!
         }else {
-            pressedBusStop = busInformation[indexPath.row].stopId!
+            pressedBusStop = busData[indexPath.row].stopId!
         }
         performSegue(withIdentifier: "clickedRow_Segue", sender: self)
     }
@@ -135,12 +111,12 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         }else {
             isSearching = true
             filteredBusInformation.removeAll()
-            for i in 0..<busInformation.count {
-                var currentStopId = busInformation[i].stopId
+            for i in 0..<busData.count {
+                var currentStopId = busData[i].stopId
                 //var
                 var keyword = searchBar.text!
                 if currentStopId?.range(of:keyword) != nil {
-                    filteredBusInformation.append(busInformation[i])
+                    filteredBusInformation.append(busData[i])
                 }
             }
                 self.tableView.reloadData()

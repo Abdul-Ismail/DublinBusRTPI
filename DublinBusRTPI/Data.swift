@@ -11,3 +11,12 @@ import Foundation
 struct Data {
     static var favourite = [String]()
 }
+
+
+
+struct busDataStruct {
+    let stopId: String?
+    let fullname: String?
+}
+
+var busData: [busDataStruct] = []

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="siH-yK-qvR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hW7-WR-1oo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -280,7 +280,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BSh-Ls-kdE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2470" y="-349"/>
+            <point key="canvasLocation" x="-1758" y="-342"/>
         </scene>
         <!--Favourite Table View Controller-->
         <scene sceneID="EHL-gL-hLq">
@@ -400,6 +400,33 @@
             </objects>
             <point key="canvasLocation" x="1472.8" y="895.50224887556226"/>
         </scene>
+        <!--Load Screen View Controller-->
+        <scene sceneID="iLm-WG-3Ft">
+            <objects>
+                <viewController id="hW7-WR-1oo" customClass="LoadScreenViewController" customModule="DublinBusRTPI" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cVg-ih-kEm"/>
+                        <viewControllerLayoutGuide type="bottom" id="sbW-jx-lLp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bHY-yj-wYi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="19148671426_9938d66f74_h" translatesAutoresizingMaskIntoConstraints="NO" id="TKB-4e-6Im">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="siH-yK-qvR" kind="show" identifier="loadingDone_Segue" id="DJA-qg-Uro"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zjW-Wx-P0t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2686" y="-342"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="dxI-9k-Vkq">
             <objects>
@@ -419,6 +446,9 @@
             <point key="canvasLocation" x="-591" y="896"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="19148671426_9938d66f74_h" width="1600" height="900"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="DHK-hF-c5n"/>
     </inferredMetricsTieBreakers>
