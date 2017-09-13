@@ -11,6 +11,8 @@
 		7B1FE9B71F67D6B100A372FD /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1FE9B61F67D6B100A372FD /* MasterViewController.swift */; };
 		7B1FE9B91F67DD1200A372FD /* SearchByAddressTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1FE9B81F67DD1200A372FD /* SearchByAddressTableViewController.swift */; };
 		7B20A0811F6822E20039D4F6 /* LoadScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B20A0801F6822E20039D4F6 /* LoadScreenViewController.swift */; };
+		7B48B4E91F6894BA00C2D225 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B48B4E81F6894BA00C2D225 /* MapKit.framework */; };
+		7B48B4EB1F68950200C2D225 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B48B4EA1F68950200C2D225 /* MapViewController.swift */; };
 		7B7CF8BC1F645C7E00456909 /* StopInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7CF8BB1F645C7E00456909 /* StopInformation.swift */; };
 		7B7CF8BE1F64624E00456909 /* StopInformationJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7CF8BD1F64624E00456909 /* StopInformationJson.swift */; };
 		7B7CF8C01F64FA5000456909 /* DueTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7CF8BF1F64FA5000456909 /* DueTimeTableViewController.swift */; };
@@ -35,6 +37,8 @@
 		7B1FE9B61F67D6B100A372FD /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		7B1FE9B81F67DD1200A372FD /* SearchByAddressTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByAddressTableViewController.swift; sourceTree = "<group>"; };
 		7B20A0801F6822E20039D4F6 /* LoadScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadScreenViewController.swift; sourceTree = "<group>"; };
+		7B48B4E81F6894BA00C2D225 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7B48B4EA1F68950200C2D225 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7B7CF8BB1F645C7E00456909 /* StopInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopInformation.swift; sourceTree = "<group>"; };
 		7B7CF8BD1F64624E00456909 /* StopInformationJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopInformationJson.swift; sourceTree = "<group>"; };
 		7B7CF8BF1F64FA5000456909 /* DueTimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DueTimeTableViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B48B4E91F6894BA00C2D225 /* MapKit.framework in Frameworks */,
 				7771B5FAAEB3324C86F09E14 /* Pods_DublinBusRTPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,9 +76,20 @@
 		01FE3C238DF7ECA145DCE0E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7B48B4E81F6894BA00C2D225 /* MapKit.framework */,
 				D44618C3F068DB7DCD3105D6 /* Pods_DublinBusRTPI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7B48B4E71F6892D600C2D225 /* Favourite */ = {
+			isa = PBXGroup;
+			children = (
+				7B7CF8CB1F65A66E00456909 /* FavouriteTableViewController.swift */,
+				7B8DFE721F65A8D00036E7F2 /* FavouriteTableViewCell.swift */,
+			);
+			name = Favourite;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		7B7CF8C11F6557CA00456909 /* Model */ = {
@@ -131,10 +147,10 @@
 				7BA025C91F6326F90057C86B /* AppDelegate.swift */,
 				7BA025CB1F6326F90057C86B /* ViewController.swift */,
 				7B7CF8C91F65970100456909 /* Data.swift */,
-				7B7CF8CB1F65A66E00456909 /* FavouriteTableViewController.swift */,
-				7BA025CD1F6326F90057C86B /* Main.storyboard */,
 				7B20A0801F6822E20039D4F6 /* LoadScreenViewController.swift */,
-				7B8DFE721F65A8D00036E7F2 /* FavouriteTableViewCell.swift */,
+				7B48B4EA1F68950200C2D225 /* MapViewController.swift */,
+				7BA025CD1F6326F90057C86B /* Main.storyboard */,
+				7B48B4E71F6892D600C2D225 /* Favourite */,
 				7B7CF8CD1F65A67500456909 /* DueTime */,
 				7B7CF8C11F6557CA00456909 /* Model */,
 				7B7CF8C21F6557E300456909 /* SearchStop */,
@@ -191,6 +207,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = N73X6W7Y98;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -300,6 +321,7 @@
 				7B7CF8BC1F645C7E00456909 /* StopInformation.swift in Sources */,
 				7B1FE9B71F67D6B100A372FD /* MasterViewController.swift in Sources */,
 				7BA025DE1F632A2F0057C86B /* SearchTableViewController.swift in Sources */,
+				7B48B4EB1F68950200C2D225 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
